@@ -1,706 +1,568 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-
+  <meta name="description" content="Sharma Advisory Group — strategy, technology, business transformation, leadership, and decision intelligence." />
   <title>Sharma Advisory Group</title>
 
-
-  <meta
-    name="description"
-    content="Sharma Advisory Group — independent advisory focused on strategy, technology, business transformation, leadership, and decision-making."
-  />
-
-
   <style>
-    :root {
-      --bg: #0b1020;
-      --bg2: #111936;
-      --text: #f5f7fb;
-      --muted: #b7c0d6;
-      --line: rgba(255,255,255,.12);
-      --card: rgba(255,255,255,.06);
-      --accent: #8ab4ff;
-      --accent2: #c7a8ff;
+    :root{
+      --bg:#08111f;
+      --bg2:#0d1830;
+      --text:#f7f9fc;
+      --muted:#aeb8cc;
+      --line:rgba(255,255,255,.12);
+      --card:rgba(255,255,255,.055);
+      --card2:rgba(255,255,255,.035);
+      --accent:#7aa7ff;
+      --accent2:#b49cff;
+      --accent3:#7ef0d2;
+      --shadow:0 28px 80px rgba(0,0,0,.28);
+      --radius:24px;
     }
 
-
-    * {
-      box-sizing: border-box;
-    }
-
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-
-    body {
-      margin: 0;
-      font-family:
-        Inter,
-        ui-sans-serif,
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-
-
-      color: var(--text);
-
-
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
       background:
-        radial-gradient(
-          circle at 15% 20%,
-          rgba(138,180,255,.18),
-          transparent 28%
-        ),
-        radial-gradient(
-          circle at 85% 15%,
-          rgba(199,168,255,.16),
-          transparent 30%
-        ),
-        linear-gradient(
-          160deg,
-          var(--bg),
-          var(--bg2)
-        );
-
-
-      min-height: 100vh;
+        radial-gradient(circle at 20% 10%, rgba(122,167,255,.14), transparent 25%),
+        radial-gradient(circle at 85% 18%, rgba(180,156,255,.13), transparent 28%),
+        linear-gradient(160deg,var(--bg),var(--bg2));
+      min-height:100vh;
+      overflow-x:hidden;
     }
 
-
-    .wrap {
-      max-width: 1120px;
-      margin: auto;
-      padding: 0 24px;
+    body::before,
+    body::after{
+      content:"";
+      position:fixed;
+      width:420px;
+      height:420px;
+      border-radius:50%;
+      filter:blur(95px);
+      z-index:-1;
+      opacity:.28;
+      animation:floatGlow 14s ease-in-out infinite alternate;
+      pointer-events:none;
     }
 
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-
-      padding: 28px 0;
-
-
-      border-bottom: 1px solid var(--line);
+    body::before{
+      background:var(--accent);
+      top:-120px;
+      left:-120px;
     }
 
-
-    .brand {
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: .02em;
+    body::after{
+      background:var(--accent2);
+      right:-140px;
+      top:180px;
+      animation-delay:2.5s;
     }
 
-
-    nav a {
-      color: var(--muted);
-      text-decoration: none;
-      margin-left: 24px;
-      font-size: 14px;
+    @keyframes floatGlow{
+      from{transform:translate3d(0,0,0) scale(1)}
+      to{transform:translate3d(50px,40px,0) scale(1.12)}
     }
 
-
-    nav a:hover {
-      color: var(--text);
+    .wrap{
+      max-width:1160px;
+      margin:auto;
+      padding:0 24px;
     }
 
-
-    .hero {
-      padding: 110px 0 80px;
-
-
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 56px;
-
-
-      align-items: center;
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:26px 0;
+      border-bottom:1px solid var(--line);
+      position:relative;
+      z-index:10;
     }
 
-
-    .eyebrow {
-      display: inline-block;
-
-
-      padding: 7px 11px;
-
-
-      border: 1px solid var(--line);
-      border-radius: 999px;
-
-
-      color: var(--muted);
-
-
-      font-size: 12px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-
-
-      margin-bottom: 22px;
-
-
-      background: rgba(255,255,255,.03);
+    .brand{
+      font-size:18px;
+      font-weight:700;
+      letter-spacing:.02em;
     }
 
-
-    h1 {
-      margin: 0;
-
-
-      font-size: clamp(48px, 7vw, 84px);
-
-
-      line-height: .98;
-      letter-spacing: -.04em;
-
-
-      max-width: 850px;
+    nav a{
+      color:var(--muted);
+      text-decoration:none;
+      margin-left:24px;
+      font-size:14px;
+      transition:.2s ease;
     }
 
+    nav a:hover{color:var(--text)}
 
-    .gradient {
+    .hero{
+      padding:105px 0 85px;
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:64px;
+      align-items:center;
+      min-height:680px;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      padding:7px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      color:var(--muted);
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      background:rgba(255,255,255,.03);
+      margin-bottom:22px;
+    }
+
+    h1{
+      margin:0;
+      font-size:clamp(52px,7vw,88px);
+      line-height:.98;
+      letter-spacing:-.045em;
+      max-width:860px;
+    }
+
+    .gradient{
+      background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent3));
+      background-size:200% 200%;
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      animation:gradientShift 8s ease infinite;
+    }
+
+    @keyframes gradientShift{
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+    }
+
+    .hero p{
+      color:var(--muted);
+      font-size:19px;
+      line-height:1.75;
+      max-width:720px;
+      margin:28px 0 0;
+    }
+
+    .hero-visual{
+      position:relative;
+      min-height:420px;
+      border:1px solid var(--line);
+      border-radius:28px;
+      background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.025));
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      isolation:isolate;
+    }
+
+    .visual-grid{
+      position:absolute;
+      inset:0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+      background-size:42px 42px;
+      mask-image:linear-gradient(to bottom,rgba(0,0,0,.95),rgba(0,0,0,.15));
+    }
+
+    .orb{
+      position:absolute;
+      width:11px;
+      height:11px;
+      border-radius:50%;
+      background:var(--accent);
+      box-shadow:0 0 24px rgba(122,167,255,.75);
+      animation:orbit 8s ease-in-out infinite alternate;
+    }
+
+    .orb:nth-child(2){left:20%;top:24%;animation-delay:.4s;background:var(--accent2)}
+    .orb:nth-child(3){left:62%;top:18%;animation-delay:1.2s;background:var(--accent3)}
+    .orb:nth-child(4){left:74%;top:62%;animation-delay:2.1s}
+    .orb:nth-child(5){left:31%;top:70%;animation-delay:3s;background:var(--accent2)}
+    .orb:nth-child(6){left:47%;top:43%;animation-delay:1.6s;background:var(--accent3)}
+
+    @keyframes orbit{
+      from{transform:translate(0,0) scale(1);opacity:.72}
+      to{transform:translate(28px,-18px) scale(1.25);opacity:1}
+    }
+
+    .core{
+      position:absolute;
+      left:50%;
+      top:50%;
+      width:170px;
+      height:170px;
+      transform:translate(-50%,-50%);
+      border-radius:50%;
       background:
-        linear-gradient(
-          90deg,
-          var(--accent),
-          var(--accent2)
-        );
-
-
-      -webkit-background-clip: text;
-      background-clip: text;
-
-
-      color: transparent;
+        radial-gradient(circle at 35% 35%,rgba(255,255,255,.26),transparent 22%),
+        linear-gradient(145deg,rgba(122,167,255,.22),rgba(180,156,255,.12));
+      border:1px solid rgba(255,255,255,.16);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:24px;
+      font-weight:650;
+      line-height:1.35;
+      box-shadow:0 0 70px rgba(122,167,255,.18);
+      animation:pulseCore 5s ease-in-out infinite;
     }
 
-
-    .hero p {
-      color: var(--muted);
-
-
-      font-size: 19px;
-      line-height: 1.7;
-
-
-      max-width: 700px;
-
-
-      margin: 28px 0 0;
+    @keyframes pulseCore{
+      0%,100%{transform:translate(-50%,-50%) scale(1)}
+      50%{transform:translate(-50%,-50%) scale(1.045)}
     }
 
-
-    .panel {
-      border: 1px solid var(--line);
-
-
-      background: var(--card);
-
-
-      border-radius: 24px;
-
-
-      padding: 28px;
-
-
-      backdrop-filter: blur(12px);
-
-
-      box-shadow:
-        0 24px 70px rgba(0,0,0,.25);
+    .ring{
+      position:absolute;
+      left:50%;
+      top:50%;
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:50%;
+      transform:translate(-50%,-50%);
+      animation:spin 24s linear infinite;
     }
 
+    .ring.r1{width:260px;height:260px}
+    .ring.r2{width:340px;height:340px;animation-direction:reverse;animation-duration:32s}
 
-    .panel h3 {
-      margin-top: 0;
-      font-size: 16px;
+    @keyframes spin{
+      to{transform:translate(-50%,-50%) rotate(360deg)}
     }
 
+    section{padding:78px 0}
 
-    .pillgrid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
+    .section-kicker{
+      color:var(--accent3);
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      margin-bottom:12px;
+      font-weight:700;
     }
 
-
-    .pill {
-      padding: 16px;
-
-
-      border: 1px solid var(--line);
-      border-radius: 16px;
-
-
-      color: #dfe5f3;
-
-
-      background:
-        rgba(255,255,255,.025);
-
-
-      font-size: 14px;
+    .section-title{
+      font-size:clamp(34px,5vw,52px);
+      letter-spacing:-.035em;
+      margin:0 0 16px;
     }
 
-
-    section {
-      padding: 70px 0;
+    .section-copy{
+      color:var(--muted);
+      max-width:780px;
+      line-height:1.8;
+      margin:0;
+      font-size:17px;
     }
 
-
-    .section-title {
-      font-size: 34px;
-      letter-spacing: -.025em;
-
-
-      margin: 0 0 14px;
+    .story{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+      margin-top:40px;
     }
 
-
-    .section-copy {
-      color: var(--muted);
-
-
-      max-width: 760px;
-
-
-      line-height: 1.8;
-
-
-      margin: 0;
+    .story-step{
+      position:relative;
+      padding:26px;
+      border:1px solid var(--line);
+      border-radius:20px;
+      background:var(--card);
+      min-height:205px;
+      overflow:hidden;
     }
 
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-
-
-      gap: 18px;
-
-
-      margin-top: 32px;
+    .story-step::after{
+      content:"";
+      position:absolute;
+      right:-40px;
+      bottom:-40px;
+      width:120px;
+      height:120px;
+      border-radius:50%;
+      background:radial-gradient(circle,rgba(122,167,255,.16),transparent 70%);
     }
 
-
-    .card {
-      padding: 24px;
-
-
-      border: 1px solid var(--line);
-      border-radius: 20px;
-
-
-      background: var(--card);
+    .story-number{
+      font-size:12px;
+      color:var(--muted);
+      letter-spacing:.12em;
+      margin-bottom:18px;
     }
 
-
-    .card h3 {
-      margin: 0 0 10px;
-      font-size: 17px;
+    .story-step h3{
+      margin:0 0 10px;
+      font-size:20px;
     }
 
-
-    .card p {
-      margin: 0;
-
-
-      color: var(--muted);
-
-
-      line-height: 1.65;
-
-
-      font-size: 14px;
+    .story-step p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+      font-size:14px;
     }
 
-
-    .contact {
-      margin: 40px 0 80px;
-
-
-      padding: 34px;
-
-
-      border: 1px solid var(--line);
-      border-radius: 24px;
-
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(138,180,255,.08),
-          rgba(199,168,255,.08)
-        );
-
-
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-
-      gap: 20px;
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:34px;
     }
 
-
-    .contact a {
-      display: inline-block;
-
-
-      color: #0b1020;
-      background: #fff;
-
-
-      text-decoration: none;
-
-
-      padding: 12px 18px;
-
-
-      border-radius: 999px;
-
-
-      font-weight: 700;
-      font-size: 14px;
+    .card{
+      padding:26px;
+      border:1px solid var(--line);
+      border-radius:20px;
+      background:var(--card);
+      transition:transform .25s ease,border-color .25s ease,background .25s ease;
     }
 
-
-    footer {
-      border-top: 1px solid var(--line);
-
-
-      padding: 28px 0 40px;
-
-
-      color: var(--muted);
-
-
-      font-size: 13px;
-
-
-      display: flex;
-      justify-content: space-between;
-
-
-      gap: 20px;
+    .card:hover{
+      transform:translateY(-5px);
+      border-color:rgba(122,167,255,.35);
+      background:rgba(255,255,255,.075);
     }
 
+    .card h3{margin:0 0 11px;font-size:18px}
+    .card p{margin:0;color:var(--muted);line-height:1.7;font-size:14px}
 
-    @media (max-width: 800px) {
+    .contact{
+      margin:38px 0 80px;
+      padding:36px;
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:linear-gradient(135deg,rgba(122,167,255,.09),rgba(180,156,255,.09));
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+    }
 
+    .contact a{
+      display:inline-block;
+      color:#08111f;
+      background:#fff;
+      text-decoration:none;
+      padding:13px 19px;
+      border-radius:999px;
+      font-weight:750;
+      font-size:14px;
+      transition:transform .2s ease;
+    }
 
-      .hero {
-        grid-template-columns: 1fr;
-        padding-top: 72px;
+    .contact a:hover{transform:translateY(-2px)}
+
+    footer{
+      border-top:1px solid var(--line);
+      padding:28px 0 40px;
+      color:var(--muted);
+      font-size:13px;
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(24px);
+      transition:opacity .75s ease,transform .75s ease;
+    }
+
+    .reveal.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr;min-height:auto;padding-top:75px}
+      .hero-visual{min-height:360px}
+      .story{grid-template-columns:1fr 1fr}
+      .cards{grid-template-columns:1fr}
+    }
+
+    @media(max-width:620px){
+      nav{display:none}
+      .story{grid-template-columns:1fr}
+      .contact{flex-direction:column;align-items:flex-start}
+      .hero-visual{min-height:320px}
+      .ring.r2{width:280px;height:280px}
+      .ring.r1{width:220px;height:220px}
+      .core{width:145px;height:145px;font-size:14px}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{
+        animation:none !important;
+        transition:none !important;
+        scroll-behavior:auto !important;
       }
-
-
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-
-      .contact {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-
-      nav {
-        display: none;
-      }
+      .reveal{opacity:1;transform:none}
     }
   </style>
 </head>
 
-
 <body>
-
-
   <div class="wrap">
-
-
     <header>
-
-
-      <div class="brand">
-        Sharma Advisory Group
-      </div>
-
-
+      <div class="brand">Sharma Advisory Group</div>
       <nav>
+        <a href="#story">How We Think</a>
         <a href="#focus">Focus</a>
-        <a href="#approach">Approach</a>
         <a href="#contact">Contact</a>
       </nav>
-
-
     </header>
 
-
-
-
     <main>
-
-
       <section class="hero">
-
-
-        <div>
-
-
-          <div class="eyebrow">
-            Independent Advisory
-          </div>
-
-
+        <div class="reveal">
+          <div class="eyebrow">Independent Advisory</div>
           <h1>
-            Clarity for
-            <span class="gradient">
-              complex decisions.
-            </span>
+            From complexity to
+            <span class="gradient">clarity, action, and impact.</span>
           </h1>
-
-
           <p>
-            Sharma Advisory Group is an independent advisory practice
-            focused on strategy, technology, business transformation,
-            leadership, and decision-making.
+            Sharma Advisory Group helps leaders and organizations navigate complex questions
+            across strategy, technology, transformation, leadership, and decision-making.
           </p>
-
-
         </div>
 
-
-
-
-        <aside class="panel">
-
-
-          <h3>
-            Areas of Focus
-          </h3>
-
-
-          <div class="pillgrid">
-
-
-            <div class="pill">
-              AI & Technology
-            </div>
-
-
-            <div class="pill">
-              Business Strategy
-            </div>
-
-
-            <div class="pill">
-              Transformation
-            </div>
-
-
-            <div class="pill">
-              Leadership
-            </div>
-
-
-            <div class="pill">
-              Decision Intelligence
-            </div>
-
-
-            <div class="pill">
-              Innovation
-            </div>
-
-
-          </div>
-
-
-        </aside>
-
-
+        <div class="hero-visual reveal" aria-hidden="true">
+          <div class="visual-grid"></div>
+          <div class="ring r1"></div>
+          <div class="ring r2"></div>
+          <div class="core">Problem → Insight → Decision → Impact</div>
+          <div class="orb"></div>
+          <div class="orb"></div>
+          <div class="orb"></div>
+          <div class="orb"></div>
+          <div class="orb"></div>
+        </div>
       </section>
 
-
-
-
-      <section id="focus">
-
-
-        <h2 class="section-title">
-          Advisory built around outcomes.
-        </h2>
-
-
+      <section id="story" class="reveal">
+        <div class="section-kicker">Our Storyline</div>
+        <h2 class="section-title">From problem to ideas to solution to impact.</h2>
         <p class="section-copy">
-          We help leaders and organizations frame difficult questions,
-          evaluate trade-offs, identify opportunities, and turn ideas
-          into practical paths forward.
+          Good advisory work is not about adding more noise. It is about helping people move
+          from uncertainty to a clearer point of view, from options to decisions, and from decisions
+          to measurable outcomes.
         </p>
 
+        <div class="story">
+          <div class="story-step">
+            <div class="story-number">01 · PROBLEM</div>
+            <h3>Frame what matters.</h3>
+            <p>Clarify the real question, constraints, stakeholders, risks, and desired outcomes.</p>
+          </div>
 
+          <div class="story-step">
+            <div class="story-number">02 · IDEAS</div>
+            <h3>Expand the possibilities.</h3>
+            <p>Generate alternatives, challenge assumptions, and connect ideas across disciplines.</p>
+          </div>
 
+          <div class="story-step">
+            <div class="story-number">03 · SOLUTION</div>
+            <h3>Make the choice actionable.</h3>
+            <p>Translate insight into practical strategies, operating choices, and execution paths.</p>
+          </div>
+
+          <div class="story-step">
+            <div class="story-number">04 · IMPACT</div>
+            <h3>Focus on outcomes.</h3>
+            <p>Anchor decisions in value creation, measurable progress, learning, and long-term relevance.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="focus" class="reveal">
+        <div class="section-kicker">Areas of Focus</div>
+        <h2 class="section-title">Advisory for decisions that cross boundaries.</h2>
+        <p class="section-copy">
+          Complex problems rarely fit neatly inside one function. Our perspective brings together
+          technology, business, strategy, leadership, and transformation to help leaders make better choices.
+        </p>
 
         <div class="cards">
-
-
           <div class="card">
-
-
-            <h3>
-              Strategy
-            </h3>
-
-
-            <p>
-              Clarify priorities, assess options, and align decisions
-              with long-term value creation.
-            </p>
-
-
+            <h3>AI & Technology</h3>
+            <p>Evaluate emerging technologies, AI, cloud, data, platforms, architecture, and adoption through a business lens.</p>
           </div>
 
-
-
-
           <div class="card">
-
-
-            <h3>
-              Technology
-            </h3>
-
-
-            <p>
-              Evaluate AI, cloud, data, platforms, and emerging
-              technology through a business lens.
-            </p>
-
-
+            <h3>Business Strategy</h3>
+            <p>Clarify priorities, assess trade-offs, identify growth opportunities, and connect strategic choices to execution.</p>
           </div>
 
-
-
-
           <div class="card">
-
-
-            <h3>
-              Leadership
-            </h3>
-
-
-            <p>
-              Support better operating models, organizational choices,
-              and high-stakes decision-making.
-            </p>
-
-
+            <h3>Transformation</h3>
+            <p>Navigate modernization, operating-model change, product evolution, adoption, and organizational complexity.</p>
           </div>
 
+          <div class="card">
+            <h3>Leadership</h3>
+            <p>Support stronger judgment, stakeholder alignment, organizational effectiveness, and decision-making under ambiguity.</p>
+          </div>
 
+          <div class="card">
+            <h3>Decision Intelligence</h3>
+            <p>Structure complex decisions using evidence, scenarios, trade-offs, and multidisciplinary reasoning.</p>
+          </div>
+
+          <div class="card">
+            <h3>Innovation</h3>
+            <p>Turn emerging ideas into clearer opportunities, experiments, products, and paths toward practical value.</p>
+          </div>
         </div>
-
-
       </section>
 
-
-
-
-      <section id="approach">
-
-
-        <h2 class="section-title">
-          Independent. Practical. Evidence-led.
-        </h2>
-
-
+      <section class="reveal">
+        <div class="section-kicker">Our Approach</div>
+        <h2 class="section-title">Independent. Practical. Evidence-led.</h2>
         <p class="section-copy">
-          Our approach combines structured analysis,
-          multidisciplinary thinking, and practical execution.
-          Engagements are tailored to the question at hand rather
-          than forced into a fixed methodology.
+          We combine structured analysis, multidisciplinary thinking, and practical execution.
+          The goal is not to force every question into a predefined framework, but to build the
+          right lens for the decision at hand.
         </p>
-
-
       </section>
 
-
-
-
-      <section
-        id="contact"
-        class="contact"
-      >
-
-
+      <section id="contact" class="contact reveal">
         <div>
-
-
-          <h2
-            class="section-title"
-            style="margin-bottom:8px"
-          >
-            Start a conversation.
-          </h2>
-
-
-          <p class="section-copy">
-            For advisory inquiries, collaborations,
-            and professional engagements.
-          </p>
-
-
+          <div class="section-kicker">Contact</div>
+          <h2 class="section-title" style="margin-bottom:8px">Start a conversation.</h2>
+          <p class="section-copy">For advisory inquiries, collaborations, and professional engagements.</p>
         </div>
-
-
-
-
-        <a
-          href="mailto:chandni@sharmaadvisorygroup.com"
-        >
-          Contact
-        </a>
-
-
+        <a href="mailto:chandni@sharmaadvisorygroup.com">Contact</a>
       </section>
-
-
     </main>
 
-
-
-
     <footer>
-
-
-      <span>
-        © 2026 Sharma Advisory Group
-      </span>
-
-
-      <span>
-        Strategy • Technology • Business • Leadership
-      </span>
-
-
+      <span>© 2026 Sharma Advisory Group</span>
+      <span>Strategy • Technology • Business • Leadership</span>
     </footer>
-
-
   </div>
 
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
 
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  </script>
 </body>
 </html>
